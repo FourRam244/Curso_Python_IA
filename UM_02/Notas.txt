@@ -1,0 +1,27 @@
+Un conjunto de comandos conocido; es lsita de instrucciones (IL)
+Los lenguajes de maquina son desarrollado por los humanos
+
+Que copone un Lenguajes
+-alfabeto: conjunto de simbolos para formar palabras
+-lexico: conocido tambien como diccionario, conjunto de palabraas
+-sintaxis: conjunto de reglas utilizadas paraa presisar cadena de palabras forman una oracion valida
+-semantico: conjunto de reglas que determina si una frase tiene sentido
+
+La compilacion frente a la interpretacion
+
+Compilacion.
+-ejecucion dde codigo maas rapida
+se alamacena en lenguaje maquina
+
+Interpretacion:
+-puedes ejecutar el codigo en cuanto lo completes
+-se almacena utilizando el mismo lenguaje de programacion
+
+¿Que es python?
+lenmguaje de programacion de alto nivel, interpretado 
+creado por guido van rossum
+Codigo abierto
+lenguaje facil e intuitivo
+
+Python esta implementado en el lenguaje C
+CPython y Jython
