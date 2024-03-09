@@ -1,6 +1,20 @@
 """
-(List Compresion)
--Es una manera maas compacta de crear listas en comparacion con los blucles tradionales
+Lista por comprensión. Permite construir listas de una manera más compacta y legible, reduciendo la 
+cantidad de código necesario en comparación con los enfoques tradicionales como usar bucles for.
+
+Sintaxis: 
+
+[expresion for elemento in iterable if condicion]
+
+
+"expresion" es el valor que se va a incluir en la lista.
+
+"elemento" es una variable que representa cada elemento del iterable.
+
+"iterable" es una secuencia de elementos sobre la cual iteramos, como una lista, una tupla, un conjunto, o cualquier otro objeto iterable.
+
+"condicion" es una expresión opcional que filtra los elementos del iterable.
+
 """
 
 #Crear una lista de los cuadrados de los primeros 5 numeros
