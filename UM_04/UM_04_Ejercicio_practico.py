@@ -28,7 +28,7 @@ def registro_empleado(codpar,htpar):
         return"Empleado agregado con exito!!"
 def listar_empleado():
     try:
-        pago_hora=20
+        global pago_hora
         sum_horas=0
         for index,empleado in enumerate(trabajadores):
             total_pago=trabajadores[index]["ht"]*pago_hora
