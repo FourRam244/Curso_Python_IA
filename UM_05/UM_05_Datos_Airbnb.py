@@ -45,9 +45,34 @@ np.random.seed(1)
 dc_listing = dc_listing.loc[np.random.permutation(len(dc_listing))]
 dc_listing= dc_listing.sort_values("distance") #ordena de manera ascendente por distancia
 print(dc_listing.iloc[0:10]["price"]) #imprimir las primeras 10 filas
-"Realizar limpieza"
+# "Realizar limpieza"
+# stripped_commas= dc_listing["price"].str.replace(",","")
+# stripped_dollars= stripped_commas.str.replace("$","")
+# dc_listing["price"]=stripped_dollars.astype("float") #Volver a convertir a float
+# mean_price= dc_listing.iloc[0:5]["price"].mean()  #Calcular la media de precio
+# print(f"Precio de renta sugerido para una habitacion de 3 acomodados: ${mean_price}") #precio de renta sugerido para una habitacion de 3 acomodados
+
+#Generando una funcion de prediccion
+dc_listing=pd.read_csv("./UM_05/Archivos/dc_airbnb.csv")
 stripped_commas= dc_listing["price"].str.replace(",","")
 stripped_dollars= stripped_commas.str.replace("$","")
 dc_listing["price"]=stripped_dollars.astype("float") #Volver a convertir a float
-mean_price= dc_listing.iloc[0:5]["price"].mean()  #Calcular la media de precio
-print(f"Precio de renta sugerido para una habitacion de 3 acomodados: ${mean_price}") #precio de renta sugerido para una habitacion de 3 acomodados
+dc_listing=dc_listing.loc[np.random.permutation(len(dc_listing))]
+#Funcion de prediccion
+def predic_price(new_listing):
+    temp_df = dc_listing.copy()
+    temp_df["distance"]= temp_df["accommodates"].apply(lambda x: np.absolute(x- new_listing))
+    temp_df=temp_df.sort_values("distance")
+    nearest_neighbors= temp_df[0:5]["price"] #Tomando 5 vecinos cercanos de los precios
+    predic_price=nearest_neighbors.mean()
+    return(predic_price)
+
+acc_one=predic_price(1)
+acc_two=predic_price(2)
+acc_three=predic_price(3)
+acc_four=predic_price(4)
+
+print(f"Precio de renta de dos {acc_two}")
+print(f"Precio de renta de tres {acc_three}")
+print(f"Precio de renta de cuatro {acc_four}")
+print(f"Precio de renta de uno {acc_one}")
