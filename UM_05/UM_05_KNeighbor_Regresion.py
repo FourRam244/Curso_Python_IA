@@ -95,3 +95,15 @@ predicctions=knn.predict(test_df[train_columns])
 three2_features_mse= mean_squared_error(test_df["price"],predicctions) #error cuadratico medio
 three2_features_rmse=three2_features_mse**(1/2) #Raiz del error cuadratico medio
 print(f"Raiz del error cuadratico medio number_of_reviews: {three2_features_rmse}")
+
+#------------------------------------------------
+knn= KNeighborsRegressor(n_neighbors=5,algorithm="brute")#5 vecinos, busqueda por bruto
+features= train_df.columns.tolist()
+features.remove("price")
+
+knn.fit(train_df[features],train_df["price"])#Entrenamiento
+all_features_predictions= knn.predict(test_df[features])
+all_features_mse= mean_squared_error(test_df["price"],all_features_predictions)
+all_features_rmse=all_features_mse**(1/2)
+print(f"Raiz del error cuadratico medio: {all_features_mse}")
+print(f"Raiz del error cuadratico medio: {all_features_rmse}")
