@@ -17,6 +17,12 @@ for hp in hyper_params:
     mse_values.append(mse)
 print(mse_values)
 
-plt.scatter(hyper_params,mse_values)
-plt.show()
+best_k= hyper_params[np.argmin(mse_values)]
+print("k optimo",best_k)
+print("minimo mse:", np.min(mse_values))
 
+plt.plot(mse_values,"or")
+plt.plot(mse_values)
+plt.xlabel("K")
+plt.ylabel("MSE")
+plt.show()
